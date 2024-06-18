@@ -93,4 +93,28 @@ console.log(filterExpensiveProducts(products, 500));
 //   { id: 2, name: 'Phone', price: 700 }
 // ]
 
+function filterExpensiveProducts(products, price){
+	return products.filter(product => product.price > price)
+}
+
+
+Question - 4
+---------
+const students = [
+  { id: 1, name: 'Alice', score: 85 },
+  { id: 2, name: 'Bob', score: 92 },
+  { id: 3, name: 'Charlie', score: 78 },
+  { id: 4, name: 'David', score: 90 }
+];
+
+console.log(sortStudentsByScore(students));
+
+// Output:
+// [
+//   { id: 2, name: 'Bob', score: 92 },
+//   { id: 4, name: 'David', score: 90 },
+//   { id: 1, name: 'Alice', score: 85 },
+//   { id: 3, name: 'Charlie', score: 78 }
+// ]
+
 
