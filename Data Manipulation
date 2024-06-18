@@ -21,6 +21,18 @@ console.log(groupBy(input, 'type'));
 //   ]
 // }
 
+function groupBy(input, key){
+	let ans = {};
+  input.forEach(item => {
+  	if(ans[item[key]]){
+    	ans[item[key]].push(item);
+    }else{
+    	ans[item[key]] = [item];
+    }
+  });
+  return ans;
+}
+
 
 
 Question - 2
@@ -61,4 +73,24 @@ function groupStudentsByGrade(students){
   });
   return ans;
 }
+
+
+
+Question - 3
+-------------
+const products = [
+  { id: 1, name: 'Laptop', price: 1500 },
+  { id: 2, name: 'Phone', price: 700 },
+  { id: 3, name: 'Tablet', price: 300 },
+  { id: 4, name: 'Monitor', price: 200 }
+];
+
+console.log(filterExpensiveProducts(products, 500));
+
+// Output: 
+// [
+//   { id: 1, name: 'Laptop', price: 1500 },
+//   { id: 2, name: 'Phone', price: 700 }
+// ]
+
 
