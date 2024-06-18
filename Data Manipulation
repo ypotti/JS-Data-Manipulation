@@ -174,3 +174,23 @@ console.log(mergeUserOrders(users, orders));
 // ]
 
 
+function mergeUserOrders(users, orders){
+  let ordersById = {};
+  orders.forEach(order => {
+    let id = order["userId"]
+    delete order["userId"];
+    
+    if(ordersById[id]){
+    	ordersById[id].push(order);
+    }else{
+    	ordersById[id] = [order];
+    }
+  });
+  
+  return users.map(user => ({
+  	...user,
+    orders: [...(ordersById[user.userId] || [])],
+  }));
+};
+
+
