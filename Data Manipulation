@@ -140,4 +140,37 @@ console.log(getUserFullNames(users));
 //   { fullName: 'Emily Jones', email: 'emily.jones@example.com' }
 // ]
 
+function getUserFullNames(users){
+	return users.map(user => ({
+  	fullName: user.firstName + ' ' + user.lastName,
+    email: user.email
+  }))
+}
+
+
+Question - 6
+----------
+
+const users = [
+  { userId: 1, name: 'Alice' },
+  { userId: 2, name: 'Bob' },
+  { userId: 3, name: 'Charlie' }
+];
+
+const orders = [
+  { orderId: 101, userId: 1, product: 'Laptop' },
+  { orderId: 102, userId: 2, product: 'Phone' },
+  { orderId: 103, userId: 3, product: 'Tablet' },
+  { orderId: 104, userId: 1, product: 'Monitor' }
+];
+
+console.log(mergeUserOrders(users, orders));
+
+// Output:
+// [
+//   { userId: 1, name: 'Alice', orders: [ { orderId: 101, product: 'Laptop' }, { orderId: 104, product: 'Monitor' } ] },
+//   { userId: 2, name: 'Bob', orders: [ { orderId: 102, product: 'Phone' } ] },
+//   { userId: 3, name: 'Charlie', orders: [ { orderId: 103, product: 'Tablet' } ] }
+// ]
+
 
