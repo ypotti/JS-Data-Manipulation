@@ -117,4 +117,27 @@ console.log(sortStudentsByScore(students));
 //   { id: 3, name: 'Charlie', score: 78 }
 // ]
 
+function sortStudentsByScore(students){
+	students.sort((a,b) => (b.score - a.score));
+  return students;
+}
+
+
+Question - 5
+-------
+const users = [
+  { firstName: 'John', lastName: 'Doe', email: 'john.doe@example.com' },
+  { firstName: 'Jane', lastName: 'Smith', email: 'jane.smith@example.com' },
+  { firstName: 'Emily', lastName: 'Jones', email: 'emily.jones@example.com' }
+];
+
+console.log(getUserFullNames(users));
+
+// Output:
+// [
+//   { fullName: 'John Doe', email: 'john.doe@example.com' },
+//   { fullName: 'Jane Smith', email: 'jane.smith@example.com' },
+//   { fullName: 'Emily Jones', email: 'emily.jones@example.com' }
+// ]
+
 
