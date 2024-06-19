@@ -244,3 +244,27 @@ function findMostExpensiveProduct(products){
   	return ans.price > product.price ? ans : product;
   })
 }
+
+
+Question - 9
+--------
+
+const students = [
+  { id: 1, name: 'Alice', score: 85 },
+  { id: 2, name: 'Bob', score: 92 },
+  { id: 3, name: 'Charlie', score: 78 },
+  { id: 4, name: 'David', score: 90 }
+];
+
+console.log(calculateAverageScore(students));
+
+// Output:
+// 86.25
+
+function calculateAverageScore(students){
+	const sum = students.reduce((sum, student)=>{
+  	return sum+student.score;
+  },0)
+  
+  return sum/students.length;
+}
