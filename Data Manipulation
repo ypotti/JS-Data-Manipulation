@@ -223,3 +223,24 @@ function summarizeTransactions(transactions){
   }, {income: 0, expense: 0})
 }
 
+
+Question - 8
+----------
+
+const products = [
+  { id: 1, name: 'Laptop', price: 1500 },
+  { id: 2, name: 'Phone', price: 700 },
+  { id: 3, name: 'Tablet', price: 300 },
+  { id: 4, name: 'Monitor', price: 200 }
+];
+
+console.log(findMostExpensiveProduct(products));
+
+// Output:
+// { id: 1, name: 'Laptop', price: 1500 }
+
+function findMostExpensiveProduct(products){
+	return products.reduce((ans, product)=>{
+  	return ans.price > product.price ? ans : product;
+  })
+}
