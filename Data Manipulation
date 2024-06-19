@@ -268,3 +268,22 @@ function calculateAverageScore(students){
   
   return sum/students.length;
 }
+
+
+Question - 10
+-------
+
+const input = [1,[2],[3,[4,[5]]];
+console.log(flattenArray(input)); // Output: [1, 2, 3, 4, 5]
+
+function flattenArray(input){
+let ans = [];
+ input.forEach(ele => {
+ 	if(Array.isArray(ele)){
+  	ans = [...ans, ...flattenArray(ele)];
+  }else{
+  	ans.push(ele);
+  }
+ });
+  return ans;
+}
