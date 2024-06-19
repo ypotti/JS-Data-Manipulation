@@ -194,3 +194,32 @@ function mergeUserOrders(users, orders){
 };
 
 
+
+
+
+Question - 7
+---------
+
+const transactions = [
+  { id: 1, amount: 100, type: 'income' },
+  { id: 2, amount: 50, type: 'expense' },
+  { id: 3, amount: 150, type: 'income' },
+  { id: 4, amount: 200, type: 'income' },
+  { id: 5, amount: 75, type: 'expense' }
+];
+
+console.log(summarizeTransactions(transactions));
+
+// Output:
+// {
+//   income: 450,
+//   expense: 125
+// }
+
+function summarizeTransactions(transactions){
+	return transactions.reduce((acc, transaction)=>{
+  	acc[transaction["type"]] += transaction["amount"];
+    return acc;
+  }, {income: 0, expense: 0})
+}
+
