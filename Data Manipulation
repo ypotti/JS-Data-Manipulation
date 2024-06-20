@@ -312,3 +312,27 @@ function removeDuplicates(items){
     return true
   })
 };
+
+
+Question - 12
+----
+
+const items = [
+  { id: 1, tag: 'javascript' },
+  { id: 2, tag: 'programming' },
+  { id: 3, tag: 'javascript' },
+  { id: 4, tag: 'web' }
+];
+
+console.log(findUniqueTags(items));
+
+// Output:
+// [ 'javascript', 'programming', 'web' ]
+
+function findUniqueTags(items){
+	let uniqueTags = new Set();
+  items.forEach(item => {
+  	uniqueTags.add(item.tag);
+  });
+  return Array.from(uniqueTags);
+};
