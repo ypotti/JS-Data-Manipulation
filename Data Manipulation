@@ -471,3 +471,42 @@ function findCommonOrders(ordersSystemA, ordersSystemB){
     return false;
   })
 };
+
+Question - 17
+-----------
+
+const salesData = [
+  { region: 'North', product: 'Laptop', sales: 100 },
+  { region: 'North', product: 'Phone', sales: 50 },
+  { region: 'South', product: 'Laptop', sales: 200 },
+  { region: 'South', product: 'Phone', sales: 150 },
+  { region: 'North', product: 'Tablet', sales: 70 },
+  { region: 'East', product: 'Tractor', sales: 700 },
+  { region: 'West', product: 'RangeRover', sales: 7 }
+];
+
+console.log(generateSalesPivot(salesData));
+
+// Output:
+// {
+//   North: { Laptop: 100, Phone: 50, Tablet: 70 },
+//   South: { Laptop: 200, Phone: 150 }
+// }
+
+function generateSalesPivot(salesData){
+	let ans={};
+  salesData.forEach(sale => {
+  	if(ans[sale["region"]]){
+    	if(ans[sale["region"]][sale["product"]]){
+      	ans[sale["region"]][sale["product"]] += sale["sales"];
+      }else{
+      	ans[sale["region"]][sale["product"]] = sale["sales"];
+      }
+    }else{
+    	ans[sale["region"]] = {};
+      ans[sale["region"]][sale["product"]] = sale["sales"];
+    }
+  });
+  
+  return ans;
+};
