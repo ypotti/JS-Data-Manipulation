@@ -287,3 +287,28 @@ let ans = [];
  });
   return ans;
 }
+
+Question - 11
+-------
+
+const items = [
+  { id: 1, value: 'a' },
+  { id: 2, value: 'b' },
+  { id: 1, value: 'c' },
+  { id: 3, value: 'd' },
+  { id: 2, value: 'e' }
+];
+
+console.log(removeDuplicates(items));
+
+// Output:
+// [ { id: 1, value: 'a' }, { id: 2, value: 'b' }, { id: 3, value: 'd' } ]
+
+function removeDuplicates(items){
+	let uniqueIds = new Set();
+	return items.filter(item => {
+  	if(uniqueIds.has(item.id)) return false;
+    uniqueIds.add(item.id);
+    return true
+  })
+};
