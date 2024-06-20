@@ -431,3 +431,43 @@ function combineUserData(users, roles){
     return {...user, ...role};
   })
 };
+
+
+
+Question - 16
+--------
+
+const ordersSystemA = [
+  { orderId: 1, product: 'Laptop' },
+  { orderId: 2, product: 'Phone' },
+  { orderId: 3, product: 'Tablet' }
+];
+
+const ordersSystemB = [
+  { orderId: 2, product: 'Phone' },
+  { orderId: 3, product: 'Tablet' },
+  { orderId: 4, product: 'Monitor' }
+];
+
+console.log(findCommonOrders(ordersSystemA, ordersSystemB));
+
+// Output:
+// [
+//   { orderId: 2, product: 'Phone' },
+//   { orderId: 3, product: 'Tablet' }
+// ]
+
+function findCommonOrders(ordersSystemA, ordersSystemB){
+	let ordersSystemById = {};
+  ordersSystemB.forEach(order => {
+  	ordersSystemById[order["orderId"]] = order;
+  });
+  
+  return ordersSystemA.filter(order => {
+  	let orderB = ordersSystemById[order["orderId"]];
+  	if(orderB && orderB["product"]===order["product"]){
+    	return true;
+    }
+    return false;
+  })
+};
