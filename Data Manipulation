@@ -364,3 +364,70 @@ function summarizeByCategory(transactions){
   });
   return ans;
 };
+
+
+Question - 14
+-----------
+
+const employees = [
+  { id: 1, name: 'Alice', projects: [{ projectId: 1, projectName: 'Project A' }, { projectId: 2, projectName: 'Project B' }] },
+  { id: 2, name: 'Bob', projects: [{ projectId: 3, projectName: 'Project C' }] }
+];
+
+console.log(flattenEmployeeProjects(employees));
+
+// Output:
+// [
+//   { employeeName: 'Alice', projectId: 1, projectName: 'Project A' },
+//   { employeeName: 'Alice', projectId: 2, projectName: 'Project B' },
+//   { employeeName: 'Bob', projectId: 3, projectName: 'Project C' }
+// ]
+
+function flattenEmployeeProjects(employees){
+	let ans = [];
+  
+  employees.forEach(employee => {
+  	employee.projects.forEach(project => {
+    	ans.push({...project, employeeName: employee.name});
+    })
+  });
+  
+  return ans;
+}
+
+Question - 15
+-------------
+
+const users = [
+  { userId: 1, name: 'Alice' },
+  { userId: 2, name: 'Bob' },
+  { userId: 3, name: 'Charlie' }
+];
+
+const roles = [
+  { userId: 1, role: 'admin' },
+  { userId: 2, role: 'user' },
+  { userId: 3, role: 'guest' }
+];
+
+console.log(combineUserData(users, roles));
+
+// Output:
+// [
+//   { userId: 1, name: 'Alice', role: 'admin' },
+//   { userId: 2, name: 'Bob', role: 'user' },
+//   { userId: 3, name: 'Charlie', role: 'guest' }
+// ]
+
+function combineUserData(users, roles){
+	let rolesById = {}, ans = [];
+  roles.forEach(role => {
+    rolesById[role["userId"]] = role;
+  })
+  
+  return users.map(user => {
+  	let role = rolesById[user["userId"]];
+    delete role["userId"];
+    return {...user, ...role};
+  })
+};
