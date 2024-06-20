@@ -336,3 +336,31 @@ function findUniqueTags(items){
   });
   return Array.from(uniqueTags);
 };
+
+Question - 13
+-----
+
+const transactions = [
+  { id: 1, amount: 100, category: 'food' },
+  { id: 2, amount: 200, category: 'clothing' },
+  { id: 3, amount: 50, category: 'food' },
+  { id: 4, amount: 150, category: 'entertainment' }
+];
+
+console.log(summarizeByCategory(transactions));
+
+// Output:
+// {
+//   food: 150,
+//   clothing: 200,
+//   entertainment: 150
+// }
+
+function summarizeByCategory(transactions){
+	let ans = {};
+  transactions.forEach(transaction => {
+  	if(!ans[transaction["category"]]) ans[transaction["category"]] = 0;
+    ans[transaction["category"]] += transaction["amount"]
+  });
+  return ans;
+};
